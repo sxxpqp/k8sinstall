@@ -2,12 +2,13 @@
 ## 前提条件
 * 部署linux系统 如：centos7 ubuntu18、20(LTS) suse等
 * 安装并启动docker/containerd(1.20+安装containerd),已经安装了会重启docker/containerd. 高版本离线包自带docker/containerd，如没安装docker/containerd会自动安装.
+* 默认安装是calio网络插件
 * 下载kubernetes 离线安装包.
 * 务必同步服务器时间
     ```
     yum install ntpdate -y
     ntpdate time.windows.com
-* 主机名不可重复 所有节点主机名
+* 主机名不可重复 所有节点主机名 
     ```
     cat /etc/hostnames  
 * master节点CPU必须2C以上
@@ -16,7 +17,7 @@
     ```
     wget -c https://sealyun.oss-cn-beijing.aliyuncs.com/latest/sealos &&chmod +x sealos && mv sealos /usr/bin 
 ## 安装教程
-1. 步骤一 安装kebernetes
+1. 步骤一 安装kebernetes 
 * 多master 高可用
     ```
     sealos init --master 192.168.0.2 \
@@ -93,3 +94,4 @@
     ```
     sealos clean --node 192.168.0.6 --node 192.168.0.7
     sealos clean --node 192.168.0.6-192.168.0.9  # 或者多个连续IP
+3. 步骤三 安装存储插件
