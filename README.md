@@ -56,7 +56,8 @@
     
     Ready 代表安装成功
         
-    ```kebetctl get pod --all 
+    ```
+    kebetctl get pod --all 
     查看所有pod是否running
 
 ## 对集群节点添加
