@@ -80,14 +80,14 @@
     ```
     sealos join --node 192.168.0.6 --node 192.168.0.7
     sealos join --node 192.168.0.6-192.168.0.9  # 或者多个连续IP
-
+    
 * 删除指定master节点
   
-**注意clean不加任何参数会清理整个集群**
-    ```
+    **注意clean不加任何参数会清理整个**
+```
     sealos clean --master 192.168.0.6 --master 192.168.0.7
     sealos clean --master 192.168.0.6-192.168.0.9  # 或者多个连续IP
-
+```    
 
 * 删除指定node节点
     ```
