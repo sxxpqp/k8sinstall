@@ -50,11 +50,11 @@
     ```
     kubectl get node
     ```
-    NAME                      STATUS   ROLES    AGE     VERSION
-    izj6cdqfqw4o4o9tc0q44rz   Ready    master   2m25s   v1.14.1
-    izj6cdqfqw4o4o9tc0q44sz   Ready    master   119s    v1.14.1
-    izj6cdqfqw4o4o9tc0q44tz   Ready    master   63s     v1.14.1
-    izj6cdqfqw4o4o9tc0q44uz   Ready    <none>   38s     v1.14.1
+    * NAME                      STATUS   ROLES    AGE     VERSION
+    * izj6cdqfqw4o4o9tc0q44rz   Ready    master   2m25s   v1.14.1
+    * izj6cdqfqw4o4o9tc0q44sz   Ready    master   119s    v1.14.1
+    * izj6cdqfqw4o4o9tc0q44tz   Ready    master   63s     v1.14.1
+    * izj6cdqfqw4o4o9tc0q44uz   Ready    <none>   38s     v1.14.1
     
     Ready 代表安装成功
         
