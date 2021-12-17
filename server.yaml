@@ -1,0 +1,33 @@
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"v1","kind":"Service","metadata":{"annotations":{},"labels":{"app":"ks-console1","tier":"frontend1","version":"v3.1.11"},"name":"ks-console1","namespace":"kubesphere-system"},"spec":{"externalTrafficPolicy":"Cluster","ports":[{"name":"nginx","nodePort":30882,"port":80,"protocol":"TCP","targetPort":8000}],"selector":{"app":"ks-console1","tier":"frontend1","version":"v3.1.11"},"sessionAffinity":"None","type":"NodePort"}}
+  creationTimestamp: "2021-07-28T06:21:45Z"
+  labels:
+    app: ks-console1
+    tier: frontend1
+    version: v3.1.11
+  name: ks-console1
+  namespace: kubesphere-system
+  resourceVersion: "838774"
+  uid: e28eb6a0-aa5e-4d71-a23c-795c45af7b81
+spec:
+  externalTrafficPolicy: Cluster
+  ipFamilies:
+  - IPv4
+  ipFamilyPolicy: SingleStack
+  ports:
+  - name: nginx
+    nodePort: 30882
+    port: 80
+    protocol: TCP
+    targetPort: 8000
+  selector:
+    app: ks-console1
+    tier: frontend1
+    version: v3.1.11
+  sessionAffinity: None
+  type: NodePort
+
