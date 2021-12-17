@@ -53,7 +53,7 @@
     izj6cdqfqw4o4o9tc0q44sz   Ready    master   119s    v1.14.1
     izj6cdqfqw4o4o9tc0q44tz   Ready    master   63s     v1.14.1
     izj6cdqfqw4o4o9tc0q44uz   Ready    <none>   38s     v1.14.1
-Ready 代表安装成功
+    Ready 代表安装成功
         
         kebetctl get pod --all #查看所有pod是否running
 
