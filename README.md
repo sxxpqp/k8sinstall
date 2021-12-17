@@ -13,6 +13,8 @@
 * master节点CPU必须2C以上
 * 开启ssh远程连接账号及密码。如账号：root 密码：123456
 * 请使用sealos 3.2.0以上版本
+    ```
+    wget -c https://sealyun.oss-cn-beijing.aliyuncs.com/latest/sealos &&chmod +x sealos && mv sealos /usr/bin 
 ## 安装教程
 1. 步骤一 安装kebernetes
 * 多master 高可用
