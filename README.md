@@ -1,5 +1,6 @@
 # k8s 部署使用教程
 ## 前提条件
+* 部署linux系统 如：centos7 ubuntu18、20(LTS) suse等
 * 安装并启动docker/containerd(1.20+安装containerd),已经安装了会重启docker/containerd. 高版本离线包自带docker/containerd，如没安装docker/containerd会自动安装.
 * 下载kubernetes 离线安装包.
 * 务必同步服务器时间
@@ -52,6 +53,9 @@
     izj6cdqfqw4o4o9tc0q44sz   Ready    master   119s    v1.14.1
     izj6cdqfqw4o4o9tc0q44tz   Ready    master   63s     v1.14.1
     izj6cdqfqw4o4o9tc0q44uz   Ready    <none>   38s     v1.14.1
+Ready 代表安装成功
+        
+        kebetctl get pod --all #查看所有pod是否running
 
 ## 对集群节点添加
 * 删除kubernetes
@@ -71,7 +75,7 @@
     sealos join --node 192.168.0.6-192.168.0.9  # 或者多个连续IP
 
 * 删除指定master节点
-  **注意clean不加任何参数会清理整个集群**
+**注意clean不加任何参数会清理整个集群**
     ```
     sealos clean --master 192.168.0.6 --master 192.168.0.7
     sealos clean --master 192.168.0.6-192.168.0.9  # 或者多个连续IP
