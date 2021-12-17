@@ -94,4 +94,63 @@
     ```
     sealos clean --node 192.168.0.6 --node 192.168.0.7
     sealos clean --node 192.168.0.6-192.168.0.9  # 或者多个连续IP
-3. 步骤三 安装存储插件
+3. 步骤三 安装存储插件 （csi-nfs组件安装步骤）
+   
+   3.1 centos7配置nfs服务器 
+    ```
+
+    [root@localhost ~]#yum install nfs-utils rpcbind -y、
+    [root@localhost ~]#mkdir -p /data/nfs/
+    [root@localhost ~]#chmod 755 /data/nfs/
+    [root@localhost ~]#vim /etc/exports
+    /data/nfs/    *(insecure,rw,sync,no_root_squash,no_all_squash)    //nfs挂载目录；*：挂载地址（*代表所有）
+    [root@localhost ~]#systemctl start nfs
+    [root@localhost ~]#systemctl start rpcbind
+    ```
+   3.2 csi-nfs-driver插件
+    ```
+    cd csi-nfs
+    bash install-dirver.sh
+    ```
+
+    3.3 修改storageclass-nfs.yaml
+    ```
+        ---
+    apiVersion: storage.k8s.io/v1
+    kind: StorageClass
+    metadata:
+    name: nfs-csi
+    provisioner: nfs.csi.k8s.io
+    parameters:
+    server: nfs-server.default.svc.cluster.local
+    share: /
+    reclaimPolicy: Delete
+    volumeBindingMode: Immediate
+    mountOptions:
+    - hard
+    - nfsvers=4.1
+    ```
+    **需要修改server、share路径**
+    如：
+    server：nfs-server
+    share：/demo/data
+3.4 部署storageclass-nfs.yaml
+    ```
+    kubectl apply -f storageclass-nfs.yaml
+    ```
+    3.5 验证pod使用storageclass动态创建pvc.
+    ```
+    ````
+    3.6 查看nfs服务器是否挂在
+    ```
+    cat /demo/data
+    ```
+
+
+4. 步骤四 安装前端组件
+
+5. 步骤五：安装显卡的插件（可选）前提是宿主机把显卡驱动安装好。
+   
+
+
+
