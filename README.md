@@ -55,11 +55,10 @@
     izj6cdqfqw4o4o9tc0q44tz   Ready    master   63s     v1.14.1
     izj6cdqfqw4o4o9tc0q44uz   Ready    <none>   38s     v1.14.1
     
-    Ready 代表安装成功
+Ready 代表安装成功
         
     ```
-    kebetctl get pod --all 
-    查看所有pod是否running
+    kebetctl get pod --all #查看所有pod是否running
 
 ## 对集群节点添加
 * 删除kubernetes
