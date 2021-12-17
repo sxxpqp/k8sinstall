@@ -141,6 +141,7 @@
     ```
     3.5 验证pod使用storageclass动态创建pvc.
     ```
+    
     ````
     3.6 查看nfs服务器是否挂在
     ```
@@ -190,6 +191,12 @@
     ```
     kubectlg get pod -w -n kube-system
     ```
+    5.4 pod验证nvidia是否正常
+    ```
+    cd ..
+    kubectl apply -f pod-nvidia.yaml
+    ```
+    running为正常
 
 
 
