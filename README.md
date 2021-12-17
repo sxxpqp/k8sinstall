@@ -134,6 +134,7 @@
     如：
     server：nfs-server
     share：/demo/data
+    
     3.4 部署storageclass-nfs.yaml
     ```
     kubectl apply -f storageclass-nfs.yaml
