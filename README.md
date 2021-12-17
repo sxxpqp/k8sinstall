@@ -64,7 +64,7 @@
     ```
     kebetctl get pod --all 
 
-## 对集群节点添加
+## 对集群删除、节点添加、节点删除
 * 删除kubernetes
     ```
     sealos clean --all
