@@ -134,7 +134,7 @@
     如：
     server：nfs-server
     share：/demo/data
-    
+
     3.4 部署storageclass-nfs.yaml
     ```
     kubectl apply -f storageclass-nfs.yaml
@@ -149,7 +149,30 @@
 
 
 4. 步骤四 安装前端组件
+4.1执行以下命令开始安装：
+    ```
+    kubectl apply -f https://github.com/kubesphere/ks-installer/releases/download/v3.2.0/kubesphere-installer.yaml
+    ```
+    ```
+    kubectl apply -f https://github.com/kubesphere/ks-installer/releases/download/v3.2.0/cluster-configuration.yaml
+    ```
 
+    4.2 检查安装日志：
+    ```
+    kubectl logs -n kubesphere-system $(kubectl get pod -n kubesphere-system -l app=ks-install -o jsonpath='{.items[0].metadata.name}') -f
+    ```
+    4.3 使用 
+    ```
+    kubectl get pod --all-namespaces 
+    ```
+    查看所有 Pod 是否在 KubeSphere 的相关命名空间中正常运行。如果是，请通过以下命令检查控制台的端口（默认为 30880）：
+    ```
+    kubectl get svc/ks-console -n kubesphere-system
+    ```
+    4.4 确保在安全组中打开了端口 30880，并通过 NodePort (IP:30880) 使用默认帐户和密码 (admin/P@88w0rd) 访问 Web 控制台。
+ 
+
+    4.5 登录控制台后，您可以在系统组件中检查不同组件的状态。如果要使用相关服务，可能需要等待某些组件启动并运行。
 5. 步骤五：安装显卡的插件（可选）前提是宿主机把显卡驱动安装好。
    
 
