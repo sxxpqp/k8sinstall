@@ -17,7 +17,7 @@
     ```
     wget -c https://sealyun.oss-cn-beijing.aliyuncs.com/latest/sealos &&chmod +x sealos && mv sealos /usr/bin 
 ## 安装教程
-### 1. 步骤一 安装kebernetes 
+### 步骤一 安装kebernetes 
 * 多master 高可用
     ```
     sealos init --master 192.168.0.2 \
@@ -47,7 +47,7 @@
 
 
 
-### 2. 步骤二  检查安装是否正常:
+### 步骤二  检查安装是否正常:
     
     查看node节点状态是否ready
     ```
@@ -66,7 +66,7 @@
     kebetctl get pod --all 
 
 
-## 3. 步骤三 安装存储插件 （csi-nfs组件安装步骤）
+## 步骤三 安装存储插件 （csi-nfs组件安装步骤）
    
    3.1 centos7配置nfs服务器 
     ```
@@ -121,7 +121,7 @@
     ```
 
 
-### 4. 步骤四 安装前端组件
+###  步骤四 安装前端组件
 4.1执行以下命令开始安装：
     ```
     kubectl apply -f https://github.com/kubesphere/ks-installer/releases/download/v3.2.0/kubesphere-installer.yaml
@@ -146,7 +146,7 @@
  
 
     4.5 登录控制台后，您可以在系统组件中检查不同组件的状态。如果要使用相关服务，可能需要等待某些组件启动并运行。
-### 5. 步骤五：安装显卡的插件（可选）前提是宿主机把显卡驱动安装好。
+### 步骤五：安装显卡的插件（可选）前提是宿主机把显卡驱动安装好。
    5.1  部署NVIDIA docker2
     ```
     yum install nvidia-docker2
