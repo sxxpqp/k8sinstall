@@ -15,9 +15,14 @@
 * 开启ssh远程连接账号及密码。如账号：root 密码：123456
 * 请使用sealos 3.2.0以上版本
     ```
-    wget -c https://sealyun.oss-cn-beijing.aliyuncs.com/latest/sealos &&chmod +x sealos && mv sealos /usr/bin 
-## 安装教程
-### 步骤一 安装kebernetes 
+    wget -c https://sealyun.oss-cn-beijing.aliyuncs.com/latest/sealos &&chmod +x sealos && mv sealos /usr/bin
+    ```
+    ## 安装教程 
+    ### 步骤一 安装kebernetes 
+    1.1 拉取代码仓k8sinsatll项目
+    ```
+    git clone https://github.com/sxxpqp/k8sinstall.git
+    ```
 * 多master 高可用
     ```
     sealos init --master 192.168.0.2 \
