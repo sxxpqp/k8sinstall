@@ -189,6 +189,11 @@
     cd nvidia-device-plugin
     helm install nvidiaplugin .
     ```
+    或者
+    ```
+    kubectl create -f https://raw.githubusercontent.com/NVIDIA/k8s-device-plugin/v0.10.0/nvidia-device-plugin.yml
+
+    ```
     5.3 检查nvidia组件的状态
     ```
     kubectlg get pod -w -n kube-system
