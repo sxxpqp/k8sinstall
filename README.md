@@ -155,13 +155,36 @@
     4.5 登录控制台后，您可以在系统组件中检查不同组件的状态。如果要使用相关服务，可能需要等待某些组件启动并运行。
     ### 步骤五：安装显卡的插件（可选）前提是宿主机把显卡驱动安装好。
    5.1  部署NVIDIA docker2 （有显卡的服务器安装）
+    #运行 NVIDIA 设备插件的先决条件列表如下所述：
+
+    * NVIDIA 驱动程序 ~= 384.81
+    * nvidia-docker 版本 > 2.0（查看如何安装及其先决条件）
+    * docker 将 nvidia 配置为默认运行时。
+    * Kubernetes 版本 >= 1.10
+
+    #添加nviidia-docker2包仓库
+    ```
+
+    ```
     ```
     yum install nvidia-docker2
     sudo pkill -SIGHUP dockerd
     ```
-   
+   #您需要启用 nvidia 运行时作为您节点上的默认运行时。我们将编辑 docker 守护进程配置文件，该文件通常位于/etc/docker/daemon.json
+    ```
+    {
+    "default-runtime": "nvidia",
+    "runtimes": {
+        "nvidia": {
+            "path": "/usr/bin/nvidia-container-runtime",
+            "runtimeArgs": []
+            }
+        }
+    }
+    ```
    
    5.2 部署nvidia组件
+
     ```
     cd nvidia-device-plugin
     helm install nvidiaplugin .
