@@ -171,12 +171,40 @@
     * docker 将 nvidia 配置为默认运行时。
     * Kubernetes 版本 >= 1.10
 
-    #添加nviidia-docker2包仓库
+   
+    本节包括使用包管理器在 CentOS 7 上安装 NVIDIA 驱动程序的说明。
+
+    在某些情况下，您可能需要安装一些安装 NVIDIA 驱动程序所需的附加依赖项。
     ```
+    sudo yum install -y tar bzip2 make automake gcc gcc-c++ pciutils elfutils-libelf-devel libglvnd-devel iptables firewalld vim bind-utils wget yum-utils
+    ```
+    满足DKMS对EPEL的外部依赖。
+    ```
+    sudo yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+    ```
+    安装 CUDA 存储库公共 GPG 密钥。
+    ```
+    distribution=rhel7
+    ```
+    设置 CUDA 网络存储库。
+    ```
+    ARCH=$( /bin/arch )
+    sudo yum-config-manager --add-repo http://developer.download.nvidia.com/compute/cuda/repos/$distribution/${ARCH}/cuda-$distribution.repo
+    ```
+    NVIDIA 驱动程序要求在安装驱动程序时以及在重新构建驱动程序时安装用于运行内核版本的内核头文件和开发包。例如，如果您的系统运行内核版本 4.4.0，则还必须安装 4.4.0 内核头文件和开发包。
+    对于 CentOS 7，请确保系统具有来自 CentOS 存储库的正确 Linux 内核源代码：
+    ``` 
+    sudo yum install -y kernel-devel-$(uname -r) kernel-headers-$(uname -r)
+    ```
+    更新存储库缓存并使用 nvidia-driver-latest-dkms 元包。
+    ```
+    sudo yum clean expire-cache
+    sudo yum install -y nvidia-driver-latest-dkms
+    ```
+    按照Linux CUDA 安装指南中的安装后步骤设置环境变量、NVIDIA 持久化守护程序（推荐）并验证驱动程序安装成功。
 
     ```
-    ```
-    yum install nvidia-docker2
+ 
     sudo pkill -SIGHUP dockerd
     ```
    #您需要启用 nvidia 运行时作为您节点上的默认运行时。我们将编辑 docker 守护进程配置文件，该文件通常位于/etc/docker/daemon.json
@@ -203,7 +231,7 @@
     ```
     或者
     ```
-    kubectl create -f https://raw.githubusercontent.com/NVIDIA/k8s-device-plugin/v0.10.0/nvidia-device-plugin.yml
+    kubectl create -f nvidia-plugin.yaml
 
     ```
     5.3 检查nvidia组件的状态
