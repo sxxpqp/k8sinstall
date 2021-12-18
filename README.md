@@ -116,6 +116,9 @@
     ```
     3.5 验证pod使用storageclass动态创建pvc.
     ```
+    kubectl get sc 
+
+    
     
     ````
     3.6 查看nfs服务器是否挂在
