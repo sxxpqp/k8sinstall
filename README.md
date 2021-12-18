@@ -25,14 +25,7 @@
     ```
 * 多master 高可用
     ```
-    sealos init --master 192.168.0.2 \
-    --master 192.168.0.3 \
-    --master 192.168.0.4 \
-    --node 192.168.0.5 \
-    --user root \
-    --passwd your-server-password \
-    --version v1.14.1 \
-    --pkg-url /root/kube1.14.1.tar.gz 
+    sealos init --master 192.168.4.35 --master 192.168.4.38 --master 192.168.4.39 --node 192.168.4.36 --node 192.168.4.37 --node 192.168.4.40 --user root --passwd 123456 --version v1.19.16 --pkg-url /root/kube1.19.16.tar.gz     
    
 * 单master多node
     ```
