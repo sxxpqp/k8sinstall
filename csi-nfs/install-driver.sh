@@ -14,28 +14,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-set -euo pipefail
-
-ver="master"
-if [[ "$#" -gt 0 ]]; then
-  ver="$1"
-fi
-
-repo="https://raw.githubusercontent.com/kubernetes-csi/csi-driver-nfs/$ver/deploy"
-if [[ "$#" -gt 1 ]]; then
-  if [[ "$2" == *"local"* ]]; then
-    echo "use local deploy"
-    repo="./deploy"
-  fi
-fi
-
-if [ $ver != "master" ]; then
-  repo="$repo/$ver"
-fi
-
-echo "Installing NFS CSI driver, version: $ver ..."
-kubectl apply -f $repo/rbac-csi-nfs-controller.yaml
-kubectl apply -f $repo/csi-nfs-driverinfo.yaml
-kubectl apply -f $repo/csi-nfs-controller.yaml
-kubectl apply -f $repo/csi-nfs-node.yaml
+echo "Installing NFS CSI driver, version:"
+kubectl apply -f rbac-csi-nfs-controller.yaml
+kubectl apply -f csi-nfs-driverinfo.yaml
+kubectl apply -f csi-nfs-controller.yaml
+kubectl apply -f csi-nfs-node.yaml
 echo 'NFS CSI driver installed successfully.'
