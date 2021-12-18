@@ -182,6 +182,9 @@
         }
     }
     ```
+    ```
+    systemctl restart docker
+    ```
    
    5.2 部署nvidia组件
 
