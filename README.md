@@ -236,14 +236,16 @@
     ```
     5.3 检查nvidia组件的状态
     ```
-    kubectlg get pod -w -n kube-system
+    kubectl get pod -w -n kube-system
+    kubectl label node node3 accelerator=nvidia-tesla-k80  
     ```
+    node3代表服务器有gpu的hostname
     5.4 pod验证nvidia是否正常
     ```
     cd ..
     kubectl apply -f pod-nvidia.yaml
     ```
-    running为正常
+    Completed为正常
 
 ## 对集群删除、节点添加、节点删除
 * 删除kubernetes
