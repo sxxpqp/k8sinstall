@@ -135,6 +135,7 @@
     ```
     kubectl apply -f cluster-configuration.yaml
     ```
+    需要稍等二十几分钟以上。
 
     4.2 检查安装日志：
     ```
@@ -153,7 +154,7 @@
 
     4.5 登录控制台后，您可以在系统组件中检查不同组件的状态。如果要使用相关服务，可能需要等待某些组件启动并运行。
     ### 步骤五：安装显卡的插件（可选）前提是宿主机把显卡驱动安装好。
-   5.1  部署NVIDIA docker2
+   5.1  部署NVIDIA docker2 （有显卡的服务器安装）
     ```
     yum install nvidia-docker2
     sudo pkill -SIGHUP dockerd
