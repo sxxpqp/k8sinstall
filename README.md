@@ -97,8 +97,8 @@
     name: nfs-csi
     provisioner: nfs.csi.k8s.io
     parameters:
-    server: nfs-server.default.svc.cluster.local
-    share: /
+    server: 192.168.4.34 #nfs服务器地址
+    share: /mnt/demo2 #nfs服务器的路径
     reclaimPolicy: Delete
     volumeBindingMode: Immediate
     mountOptions:
@@ -118,22 +118,22 @@
     ```
     kubectl get sc 
 
-    
+
     
     ````
     3.6 查看nfs服务器是否挂在
     ```
-    cat /demo/data
+    cat /mnt/demo2
     ```
 
 
     ###  步骤四 安装前端组件
     4.1执行以下命令开始安装：
     ```
-    kubectl apply -f https://github.com/kubesphere/ks-installer/releases/download/v3.2.0/kubesphere-installer.yaml
+    kubectl apply -f install.yaml
     ```
     ```
-    kubectl apply -f https://github.com/kubesphere/ks-installer/releases/download/v3.2.0/cluster-configuration.yaml
+    kubectl apply -f cluster-configuration.yaml
     ```
 
     4.2 检查安装日志：
