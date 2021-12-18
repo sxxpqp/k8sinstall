@@ -141,6 +141,13 @@
     ```
     kubectl logs -n kubesphere-system $(kubectl get pod -n kubesphere-system -l app=ks-install -o jsonpath='{.items[0].metadata.name}') -f
     ```
+    'monitoring' failed: 有报错执行下面命令
+    ```
+    kubectl -n kubesphere-monitoring-system create  secret generic kube-etcd-client-certs \
+    --from-file=etcd-client-ca.crt=/etc/kubernetes/pki/etcd/ca.crt \
+     --from-file=etcd-client.crt=/etc/kubernetes/pki/etcd/healthcheck-client.crt \
+    --from-file=etcd-client.key=/etc/kubernetes/pki/etcd/healthcheck-client.key
+    ```
     4.3 使用 
     ```
     kubectl get pod --all-namespaces 
