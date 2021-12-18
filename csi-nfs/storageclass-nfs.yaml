@@ -5,8 +5,8 @@ metadata:
   name: nfs-csi
 provisioner: nfs.csi.k8s.io
 parameters:
-  server: nfs-server.default.svc.cluster.local
-  share: /
+  server: 192.168.4.34
+  share: /mnt/demo2
 reclaimPolicy: Delete
 volumeBindingMode: Immediate
 mountOptions:

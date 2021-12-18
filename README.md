@@ -83,6 +83,10 @@
     cd csi-nfs
     bash install-dirver.sh
     ```
+    稍等一下 拉去镜像需要时间
+    ```
+    kubectl get pod -n kube-system
+    ```
 
     3.3 修改storageclass-nfs.yaml
     ```
