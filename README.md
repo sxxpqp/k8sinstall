@@ -135,7 +135,7 @@
     ```
     kubectl apply -f cluster-configuration.yaml
     ```
-    需要稍等二十几分钟以上。
+    需要稍等三十几分钟以上。
 
     4.2 检查安装日志：
     ```
