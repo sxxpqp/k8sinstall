@@ -30,12 +30,8 @@
    
 * 单master多node
     ```
-    sealos init --master 192.168.0.2 \
-    --node 192.168.0.5 \
-    --user root \
-    --passwd your-server-password \
-    --version v1.14.1 \
-    --pkg-url /root/kube1.14.1.tar.gz
+   sealos init --master 172.16.0.66  --node 172.16.0.67 --node 172.16.0.68 --user root --passwd Xl123456.. --version v1.19.16 --pkg-url /root/kube1.19.16.tar.gz 
+   ```
 
 * 自定义ssh端口号,如2022：
     ```
