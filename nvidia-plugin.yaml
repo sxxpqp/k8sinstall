@@ -60,3 +60,5 @@ spec:
         - name: device-plugin
           hostPath:
             path: /var/lib/kubelet/device-plugins
+      nodeSelector:
+        kubernetes.io/hostname: node3
