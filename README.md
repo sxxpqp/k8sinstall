@@ -10,6 +10,7 @@
     ntpdate time.windows.com
 * 主机名不可重复 所有节点主机名 
     ```
+    hostnamectl set-hostname master
     cat /etc/hostnames  
 * master节点CPU必须2C以上
 * 开启ssh远程连接账号及密码。如账号：root 密码：123456
